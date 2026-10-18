@@ -36,6 +36,8 @@ Two questions need judgement that code cannot supply: what does this report say,
 - `python3 tests/test_fixtures.py`: checks every demo report against the contract's own rules (9 checks).
 - `tests/ui_test.js`: 29 browser checks of the demo page against a simulated chain and a pretend wallet, including a report that changes between the two reads. It does not use a real network.
 - The pre-check patterns were tightened after a test showed they would have refused honest pages that say "Status: Full time".
+- One real run on Studio with real validators: all six example reports behaved as the design predicts, including a finished match becoming final after a separate second read (see `RESULTS.md`). One run of each report is not a failure rate.
+- One real run on Bradbury with a real wallet: a finished match became final after a separate second read (see `RESULTS.md`).
 
 ## Honest limits
 - **Final means two reads agreed, not that the result is true.** A page that is consistently wrong gives a consistently wrong final result. The contract reads one report per match.
