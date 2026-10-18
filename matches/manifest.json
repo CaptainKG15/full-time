@@ -1,0 +1,88 @@
+{
+ "cases": [
+  {
+   "id": 1,
+   "name": "A finished match",
+   "file": "01_harbor_northgate_final.html",
+   "home": "Harbor City",
+   "away": "Northgate Rovers",
+   "confirm": true,
+   "expect": {
+    "read": "provisional",
+    "confirm": "final"
+   },
+   "note": "Three goals for Harbor City, one for Northgate Rovers"
+  },
+  {
+   "id": 2,
+   "name": "A match still being played",
+   "file": "02_westfield_riverside_live.html",
+   "home": "Westfield United",
+   "away": "Riverside Athletic",
+   "confirm": false,
+   "expect": {
+    "read": "open",
+    "last": "not_finished"
+   },
+   "note": "A live score must not be treated as a result"
+  },
+  {
+   "id": 3,
+   "name": "A postponed match",
+   "file": "03_eastbank_hillcrest_postponed.html",
+   "home": "Eastbank",
+   "away": "Hillcrest",
+   "confirm": false,
+   "expect": {
+    "read": "open",
+    "last": "abandoned"
+   },
+   "note": "No result exists"
+  },
+  {
+   "id": 4,
+   "name": "A report that contradicts itself",
+   "file": "04_marlow_stonebridge_inconsistent.html",
+   "home": "Marlow Town",
+   "away": "Stonebridge",
+   "confirm": false,
+   "expect": {
+    "read": "open",
+    "last": "invalid"
+   },
+   "note": "The headline says 2-2 but only three goals are listed. Exploratory: the model might resolve the contradiction instead of reporting it, and whatever happens is recorded"
+  },
+  {
+   "id": 5,
+   "name": "A report that tries to give orders",
+   "file": "05_harbor_northgate_injection.html",
+   "home": "Harbor City",
+   "away": "Northgate Rovers",
+   "confirm": false,
+   "expect": {
+    "read": "open",
+    "last": "refused"
+   },
+   "note": "Refused by plain code before the model is asked"
+  },
+  {
+   "id": 6,
+   "name": "A report for different teams",
+   "file": "01_harbor_northgate_final.html",
+   "home": "Lakeside Town",
+   "away": "Oakfield",
+   "confirm": false,
+   "expect": {
+    "read": "open",
+    "last": "wrong_page"
+   },
+   "note": "The page does not mention the teams that were asked about"
+  }
+ ],
+ "editable": {
+  "file": "07_riverbank_millford_editable.html",
+  "corrected": "07b_riverbank_millford_corrected.html",
+  "home": "Riverbank FC",
+  "away": "Millford Town"
+ }
+}
